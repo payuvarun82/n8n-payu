@@ -1,0 +1,50 @@
+{
+  "name": "n8n-nodes-payu",
+  "version": "0.1.0",
+  "description": "n8n community node for PayU payment gateway",
+  "keywords": [
+    "n8n-community-node-package",
+    "payu",
+    "payment",
+    "gateway",
+    "india"
+  ],
+  "license": "MIT",
+  "homepage": "https://docs.payu.in",
+  "author": {
+    "name": "Community"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/community/n8n-nodes-payu"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && cp nodes/Payu/assets/payu-logo.svg dist/nodes/Payu/payu-logo.svg",
+    "dev": "tsc --watch",
+    "lint": "eslint nodes credentials --ext .ts",
+    "lintfix": "eslint nodes credentials --ext .ts --fix",
+    "prepublishOnly": "npm run build && npm run lint"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/PayuApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Payu/Payu.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0",
+    "gulp": "^4.0.2",
+    "n8n-workflow": "*",
+    "typescript": "^5.1.6"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
